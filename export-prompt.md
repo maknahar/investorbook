@@ -10,7 +10,7 @@ Build a simple web server that returns an Excel export for a given company's
 data.
 
 - GET /companies/:companyId/export
-  - Header
+  - Header(top of each page)
     - Row 1, Column A is `{Name of Company} Export`.
     - Row 2, Column B is `Generated on {date}`.
     - Row 3 is blank.
