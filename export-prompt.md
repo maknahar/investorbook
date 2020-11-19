@@ -32,6 +32,10 @@ data.
 
 README.md has instructions for connecting to the database.
 
+## Submission
+
+Fork this repository and send us a link to your fork after pushing your changes.
+
 ## Evaluation Criteria
 
 - Clean, modular, easy-to-maintain code

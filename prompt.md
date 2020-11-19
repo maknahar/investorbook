@@ -34,6 +34,10 @@ four hours:
   investor C if investor A is a 1st degree connection of both investor B and
   investor C.
 
+## Submission
+
+Fork this repository and send us a link to your fork after pushing your changes.
+
 ## Evaluation Criteria
 
 - Clean, modular, easy-to-maintain code

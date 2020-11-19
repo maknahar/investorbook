@@ -26,6 +26,10 @@ which features to build in the allotted time. You can use any open source
 packages that you'd like to pull in. This is a lot to build in four hours, so
 it's reasonable to cut corners and focus on building a rough prototype.
 
+## Submission
+
+Fork this repository and send us a link to your fork after pushing your changes.
+
 ## Tables
 
 - Investors
