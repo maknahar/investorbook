@@ -16,6 +16,8 @@ is to build a spreadsheet-style interface.
 Implement this [design](https://www.figma.com/file/JJt9uopcl9K3WxPjCxT8V0/Investorbook?node-id=0%3A1) to add, view, edit, and delete records
 in the three tables. 
 
+![screenshot](investorbook.png)
+
 ### Advanced Version
 
 Build a spreadsheet CRUD interface (similar to Google Sheets or Airtable) that
