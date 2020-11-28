@@ -13,8 +13,8 @@ is to build a spreadsheet-style interface.
 
 ### Basic Version
 
-Build a simple CRUD interface that lets you add, view, edit, and delete records
-in the three tables.
+Implement this [design](https://www.figma.com/file/JJt9uopcl9K3WxPjCxT8V0/Investorbook?node-id=0%3A1) to add, view, edit, and delete records
+in the three tables. 
 
 ### Advanced Version
 
