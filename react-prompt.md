@@ -13,8 +13,9 @@ is to build a spreadsheet-style interface.
 
 ### Basic Version
 
-Implement this [design](https://www.figma.com/file/JJt9uopcl9K3WxPjCxT8V0/Investorbook?node-id=0%3A1) to add, view, edit, and delete records
-in the three tables. 
+Implement this
+[design](https://www.figma.com/file/JJt9uopcl9K3WxPjCxT8V0/Investorbook?node-id=0%3A1)
+to add, view, edit, and delete records in the three tables.
 
 ![screenshot](investorbook.png)
 
@@ -25,8 +26,9 @@ includes useful features like infinite scroll, collaborative editing (you can
 try using Hasura Subscriptions for this), filtering, sort, search, the ability
 to copy paste from another spreadsheet, etc. Use your own discretion to decide
 which features to build in the allotted time. You can use any open source
-packages that you'd like to pull in. This is a lot to build in four hours, so
-it's reasonable to cut corners and focus on building a rough prototype.
+packages that you'd like to pull in, including existing spreadsheet libraries.
+This is a lot to build in four hours, so it's reasonable to cut corners and
+focus on building a rough prototype.
 
 ## Submission
 
