@@ -1,28 +1,6 @@
 # docker-compose.yml
 version: "3.7"
 services:
-  postgres:
-    image: postgres:11
-    ports:
-      - 5433:5432
-    volumes:
-      - ./db/sampledata.sql:/docker-entrypoint-initdb.d/1-init.sql
-    environment:
-      - POSTGRES_HOST_AUTH_METHOD=trust
-  hasura:
-    image: hasura/graphql-engine:v1.2.1.cli-migrations-v2
-    depends_on:
-      - postgres
-    environment:
-      - HASURA_GRAPHQL_DATABASE_URL=postgresql://postgres:postgres@postgres:5432/postgres
-      - HASURA_GRAPHQL_ENABLE_CONSOLE=true
-      - HASURA_GRAPHQL_LOG_LEVEL=warn
-    ports:
-      - 8091:8080
-    volumes:
-      - ./hasura/migrations:/hasura-migrations
-      - ./hasura/metadata:/hasura-metadata
-    restart: always
   webclient:
     build: ./webclient
     ports:
