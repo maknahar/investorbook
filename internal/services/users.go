@@ -8,10 +8,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/sirupsen/logrus"
+	"github.com/maknahar/investorbook/internal/models"
 
 	"github.com/360EntSecGroup-Skylar/excelize/v2"
-	"github.com/raksul-code-review/userapi-candidate-maknahar-a993286a1d8d72e3a9534ec66ef11449/internal/models"
+	"github.com/sirupsen/logrus"
 )
 
 type ReportServicer interface {

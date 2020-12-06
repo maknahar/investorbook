@@ -10,10 +10,11 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/maknahar/investorbook/internal/routes"
+
 	"github.com/sirupsen/logrus"
 
-	"github.com/raksul-code-review/userapi-candidate-maknahar-a993286a1d8d72e3a9534ec66ef11449/internal/configs"
-	"github.com/raksul-code-review/userapi-candidate-maknahar-a993286a1d8d72e3a9534ec66ef11449/internal/routes"
+	"github.com/maknahar/investorbook/internal/configs"
 )
 
 func main() {

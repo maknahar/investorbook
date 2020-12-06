@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/go-chi/chi"
 	"github.com/sirupsen/logrus"
 
-	"github.com/go-chi/chi"
-	"github.com/raksul-code-review/userapi-candidate-maknahar-a993286a1d8d72e3a9534ec66ef11449/internal/services"
+	"github.com/maknahar/investorbook/internal/services"
 )
 
 type ReportHandler struct {

@@ -4,10 +4,11 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/maknahar/investorbook/internal/configs"
+
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/cors"
-	"github.com/raksul-code-review/userapi-candidate-maknahar-a993286a1d8d72e3a9534ec66ef11449/internal/configs"
 )
 
 func Get(conf *configs.Conf) *chi.Mux {
