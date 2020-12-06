@@ -121,8 +121,6 @@ func (u report) GetCommonInvestor(ctx context.Context, id int64) (commonInvestor
 	}()
 
 	for rows.Next() {
-		logrus.Print("commonInvestorLength", len(commonInvestors))
-
 		var commonInvestor CommonInvestor
 
 		err = rows.Scan(&commonInvestor.CompanyName, pq.Array(&commonInvestor.Investors))
