@@ -6,15 +6,10 @@ import (
 	"os"
 	"strconv"
 	"strings"
-	"time"
 
 	"github.com/raksul-code-review/userapi-candidate-maknahar-a993286a1d8d72e3a9534ec66ef11449/internal/db"
 
 	"github.com/sirupsen/logrus"
-)
-
-const (
-	defaultTokenValidityDuration = time.Second * 3
 )
 
 // Conf contains all the configuration required for the service to run and can be user for dependency ingestion.

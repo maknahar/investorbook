@@ -69,7 +69,6 @@ func (r *report) GetCompanyReport(ctx context.Context, companyID int64) (*exceli
 			f.SetCellValue(companySheetName, "B"+strconv.Itoa(dataRow), strings.Join(investor.Investors, ", "))
 			dataRow++
 		}
-
 	}
 
 	// Set active sheet of the workbook.

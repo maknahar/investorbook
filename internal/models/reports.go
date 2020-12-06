@@ -2,14 +2,11 @@ package models
 
 import (
 	"context"
-
-	"github.com/lib/pq"
-
-	"github.com/sirupsen/logrus"
-
-	//nolint:gosec
 	"database/sql"
 	"time"
+
+	"github.com/lib/pq"
+	"github.com/sirupsen/logrus"
 )
 
 // Company represents all user info. Secret is populated if accessToken is given.
@@ -134,8 +131,6 @@ func (u report) GetCommonInvestor(ctx context.Context, id int64) (commonInvestor
 	if rows.Err() != nil {
 		return nil, err
 	}
-
-	logrus.Info("Found common investor", len(commonInvestors))
 
 	return commonInvestors, nil
 }
