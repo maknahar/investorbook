@@ -1,13 +1,36 @@
-# docker-compose.yml
-version: "3.7"
+version: "3.8"
+
 services:
-  webclient:
-    build: ./webclient
-    ports:
-      - 3001:3000
-    volumes:
-      - ./webclient/src:/app/src
-      - ./webclient/public:/app/public
+  pg:
+    image: postgres:11-alpine
+    restart: always
     environment:
-      - NODE_ENV=development
-    tty: true
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: userapi
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - pgnet
+
+  userapi:
+    build: .
+    environment:
+      HOST: :9001
+      DB_HOST: pg
+      DB_USER: postgres
+      DB_PASS: example
+      DB_NAME: userapi
+    ports:
+      - "9001:9001"
+    networks:
+      - pgnet
+    depends_on:
+      - pg
+
+volumes:
+  pg-data:
+
+networks:
+  pgnet:

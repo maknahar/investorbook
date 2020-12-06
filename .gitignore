@@ -1,1 +1,15 @@
-db/sampledata.sql
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+userapi-candidate-maknahar-a993286a1d8d72e3a9534ec66ef11449
+
