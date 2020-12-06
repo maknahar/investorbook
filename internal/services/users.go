@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/maknahar/investorbook/internal/models"
@@ -49,32 +50,48 @@ func (r *report) GetCompanyReport(ctx context.Context, companyID int64) (*exceli
 	f.SetCellValue(companySheetName, "A4", "Company Name")
 	f.SetCellValue(companySheetName, "B4", "Shared Investors Name")
 
-	dataRow := 5
-	if investments, err := r.model.GetInvestments(ctx, companyID); err != nil {
-		return nil, err
-	} else {
-		for _, investment := range investments {
-			f.SetCellValue(investorSheetName, "A"+strconv.Itoa(dataRow), investment.InvestorName)
-			f.SetCellValue(investorSheetName, "B"+strconv.Itoa(dataRow), investment.TotalInvestment)
-			dataRow++
-		}
-	}
+	wg := sync.WaitGroup{}
+	wg.Add(2)
 
-	dataRow = 5
-	if investors, err := r.model.GetCommonInvestor(ctx, companyID); err != nil {
-		return nil, err
-	} else {
-		for _, investor := range investors {
-			f.SetCellValue(companySheetName, "A"+strconv.Itoa(dataRow), investor.CompanyName)
-			f.SetCellValue(companySheetName, "B"+strconv.Itoa(dataRow), strings.Join(investor.Investors, ", "))
-			dataRow++
-		}
-	}
+	go r.addInvestmentDetails(ctx, &wg, f, company, investorSheetName)
+	go r.addCommonInvestor(ctx, &wg, f, company, companySheetName)
+
+	wg.Wait()
 
 	// Set active sheet of the workbook.
 	f.SetActiveSheet(investorSheet)
 
 	return f, nil
+}
+
+func (r *report) addInvestmentDetails(ctx context.Context, wg *sync.WaitGroup, f *excelize.File, company *models.Company, sheetName string) error {
+	dataRow := 5
+	defer wg.Done()
+	if investments, err := r.model.GetInvestments(ctx, company.ID); err != nil {
+		return err
+	} else {
+		for _, investment := range investments {
+			f.SetCellValue(sheetName, "A"+strconv.Itoa(dataRow), investment.InvestorName)
+			f.SetCellValue(sheetName, "B"+strconv.Itoa(dataRow), investment.TotalInvestment)
+			dataRow++
+		}
+	}
+	return nil
+}
+
+func (r *report) addCommonInvestor(ctx context.Context, wg *sync.WaitGroup, f *excelize.File, company *models.Company, sheetName string) error {
+	dataRow := 5
+	defer wg.Done()
+	if investors, err := r.model.GetCommonInvestor(ctx, company.ID); err != nil {
+		return err
+	} else {
+		for _, investor := range investors {
+			f.SetCellValue(sheetName, "A"+strconv.Itoa(dataRow), investor.CompanyName)
+			f.SetCellValue(sheetName, "B"+strconv.Itoa(dataRow), strings.Join(investor.Investors, ", "))
+			dataRow++
+		}
+	}
+	return nil
 }
 
 func (r *report) setHeader(f *excelize.File, company *models.Company, sheetName string) {
