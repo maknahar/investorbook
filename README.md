@@ -50,15 +50,16 @@ Fork this repository and send us a link to your fork after pushing your changes.
 ##NOTE
 
 - Looks like DB end-point provided in the README.md `postgres://postgres:vrqLs08CazD0j6l8@35.194.8.164:5432` is not reachable.
+![DB Error](./db_error.png)
 - Found the DB dump inside a compressed file `https://github.com/ProlificLabs/investorbook/blob/master/investorbook.zip`
 - Restored the DB locally and wrote a solution accordingly.
 
 ## How To Run
 
-1. Make sure you are running postgres 11. ![DB Error](./db_error.png)
+1. Make sure you are running postgres 11. 
 2. Run the following commands to restore the database.
 ```
-createdb investorbook && psql -f investorbook.sql -d investorbook
+unzip investorbook.zip && createdb investorbook && psql -f investorbook.sql -d investorbook
 ```
 3. Start the application. `go run main.go`
 4. Open `http://localhost:9001/companies/:companyId/export` in the browser.
